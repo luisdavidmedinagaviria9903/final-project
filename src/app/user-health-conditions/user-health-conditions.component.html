@@ -1,4 +1,4 @@
-<div class="contenedor__login-registar1" id="contenedor1">
+<div class="contenedor__login-registar1" id="contenedor1" *ngIf="isAuthorized">
   <form [formGroup]="form" class="formulario__login1">
       <h1>INGRESA LAS CONDICIONES DE SALUD</h1>
 
@@ -24,7 +24,5 @@
 
     <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="submit()">Registrar</button>
   </form>
-
-  <!--pre>{{form.value | json}}</pre-->
 
 </div>

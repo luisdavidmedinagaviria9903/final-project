@@ -1,11 +1,13 @@
 <div>
-  <mat-icon ><img src="assets/person-fill.svg" alt="person"></mat-icon>
-  <button [matMenuTriggerFor]="afterMenu" mat-icon-button>{{userName}}</button>
-  <mat-menu #afterMenu="matMenu" xPosition="after">
-    <button (click)="logout()" mat-menu-item type="submit">Sing Out</button>
-  </mat-menu>
+
   <div class="contenedor__todo">
 
+     <mat-icon ><img src="assets/person-fill.svg" alt="person"></mat-icon>
+    <button style="font-size: 1.4rem" [matMenuTriggerFor]="afterMenu" mat-icon-button>{{userName}}</button>
+
+    <mat-menu #afterMenu="matMenu" xPosition="after">
+      <button (click)="logout()" mat-menu-item type="submit">Sing Out</button>
+    </mat-menu>
 
     <div class="caja__trasera">
 
@@ -49,6 +51,15 @@
           </ng-container>
           <ng-container *ngSwitchCase="3">
             <app-health-indicators></app-health-indicators>
+          </ng-container>
+          <ng-container *ngSwitchCase="4">
+            <app-medical-control></app-medical-control>
+          </ng-container>
+          <ng-container *ngSwitchCase="5">
+            <app-case-tracking></app-case-tracking>
+          </ng-container>
+          <ng-container *ngSwitchCase="6">
+            <app-health-queries></app-health-queries>
           </ng-container>
           <ng-container *ngSwitchDefault>
             <app-user-health-conditions></app-user-health-conditions>

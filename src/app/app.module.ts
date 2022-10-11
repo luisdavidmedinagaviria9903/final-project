@@ -20,6 +20,10 @@ import {MatSelectModule} from "@angular/material/select";
 import { UserHealthConditionsComponent } from './user-health-conditions/user-health-conditions.component';
 import { MedicalTestComponent } from './medical-test/medical-test.component';
 import { HealthIndicatorsComponent } from './health-indicators/health-indicators.component';
+import { MedicalControlComponent } from './medical-control/medical-control.component';
+import { CaseTrackingComponent } from './case-tracking/case-tracking.component';
+import { HealthQueriesComponent } from './health-queries/health-queries.component';
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -30,7 +34,10 @@ import { HealthIndicatorsComponent } from './health-indicators/health-indicators
     FamilarConditionsComponent,
     UserHealthConditionsComponent,
     MedicalTestComponent,
-    HealthIndicatorsComponent
+    HealthIndicatorsComponent,
+    MedicalControlComponent,
+    CaseTrackingComponent,
+    HealthQueriesComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +52,7 @@ import { HealthIndicatorsComponent } from './health-indicators/health-indicators
     MatInputModule,
     MatRadioModule,
     MatSelectModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

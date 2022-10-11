@@ -1,0 +1,25 @@
+table {
+  width: 100%;
+}
+.contenedor__login-registar7{
+  position: absolute;
+  top: 80px;
+  left: 300px;
+}
+
+.consultar{
+  margin-left: 20px;
+}
+
+select{
+  margin: 10px;
+}
+
+.contenedor__login-registar7 form input{
+  width: 100%;
+  padding: 17px;
+  border: none;
+  background: rgba(223, 219, 219, 0.788);
+  outline: none;
+
+}

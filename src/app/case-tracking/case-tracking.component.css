@@ -1,0 +1,17 @@
+
+.contenedor__login-registar6{
+  position: absolute;
+  top: 80px;
+  left: 300px;
+}
+
+
+
+.contenedor__login-registar6 form input{
+  width: 100%;
+  padding: 17px;
+  border: none;
+  background: rgba(223, 219, 219, 0.788);
+  outline: none;
+
+}

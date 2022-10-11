@@ -4,6 +4,7 @@ import {UserFamilyService} from "../services/user-family.service";
 import {CookieUtilityService} from "../core/cookie-utility.service";
 import {show_popup, TITLE_ERROR, TITLE_INFO} from "../core/popup";
 import {HealthConditionService} from "../services/health-condition.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-health-conditions',
@@ -15,11 +16,13 @@ export class UserHealthConditionsComponent implements OnInit {
   form!: UntypedFormGroup;
   typeOfSickness: SicknessType[] = [];
   typeOfUser: UserFamily[] = [];
+  isAuthorized: boolean = false;
 
   constructor(private formBuilder: UntypedFormBuilder,
               private userFamilyService: UserFamilyService,
-              private cookieService: CookieUtilityService,
-              private healthConditionService: HealthConditionService) {
+              public cookieService: CookieUtilityService,
+              private healthConditionService: HealthConditionService,
+              private router: Router) {
     this.form = this.formBuilder.group({
       user_id: [null],
       is_familiar: [false],
@@ -31,18 +34,26 @@ export class UserHealthConditionsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.healthConditionService.findAllSickness()
-      .subscribe(value => this.typeOfSickness = value);
+    if (this.cookieService.getCookie('email')){
+      this.isAuthorized = true;
 
-    this.userFamilyService.getByUserEmail(this.cookieService.getCookie('email')).subscribe({
-      next: (response: any) => {
-        if (response.length > 0){
-          this.typeOfUser = response;
+      this.healthConditionService.findAllSickness()
+        .subscribe(value => this.typeOfSickness = value);
+
+      this.userFamilyService.getByUserEmail(this.cookieService.getCookie('email')).subscribe({
+        next: (response: any) => {
+          if (response.length > 0){
+            this.typeOfUser = response;
+          }
+        },error: () => {
+          show_popup(TITLE_ERROR, 'Algo salio mal, comunicate con soporte');
         }
-      },error: () => {
-        show_popup(TITLE_ERROR, 'Algo salio mal, comunicate con soporte');
-      }
-    })
+      })
+    }else {
+      show_popup(TITLE_ERROR, 'Todavia no estas logueado, por favor revisa!').
+      then(() => this.router.navigate(['login']))
+    }
+
   }
 
   submit() {
