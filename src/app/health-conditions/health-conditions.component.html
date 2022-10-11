@@ -1,0 +1,65 @@
+<div>
+  <mat-icon ><img src="assets/person-fill.svg" alt="person"></mat-icon>
+  <button [matMenuTriggerFor]="afterMenu" mat-icon-button>{{userName}}</button>
+  <mat-menu #afterMenu="matMenu" xPosition="after">
+    <button (click)="logout()" mat-menu-item type="submit">Sing Out</button>
+  </mat-menu>
+  <div class="contenedor__todo">
+
+
+    <div class="caja__trasera">
+
+      <div class="menu_botones">
+
+        <h1 class="title">CUIDANDO TU SALUD</h1>
+        <div class="boton1">
+          <button id="registro_familia" (click)="showOption(0)"><pre>     DATOS FAMILIAR     </pre></button>
+        </div>
+
+        <div class="boton2">
+          <button id="registro_salud"  (click)="showOption(1)"><pre>CONDICION DE SALUD </pre></button>
+        </div>
+
+        <div class="boton3">
+          <button id="examne_medico" (click)="showOption(2)"><pre>       EXAMEN MEDICO     </pre></button>
+        </div>
+
+        <div class="boton4">
+          <button id="indicadores_salud" (click)="showOption(3)"><pre>INDICADORES DE SALUD</pre></button>
+        </div>
+
+        <div class="boton5">
+          <button id="control_profesionales" (click)="showOption(4)"><pre>CONTROL CON MEDICOS</pre></button>
+        </div>
+
+        <div class="boton6">
+          <button id="seguimiento_c.s" (click)="showOption(5)"><pre>        SEGUIMIENTO C.S.</pre></button>
+        </div>
+
+        <div class="boton7">
+          <button id="consultas" (click)="showOption(6)"><pre>          CONSULTAS         </pre></button>
+        </div>
+
+        <ng-container [ngSwitch]="optionSelected">
+          <ng-container *ngSwitchCase="0">
+            <app-familar-conditions ></app-familar-conditions>
+          </ng-container >
+          <ng-container *ngSwitchCase="2">
+            <app-medical-test></app-medical-test>
+          </ng-container>
+          <ng-container *ngSwitchCase="3">
+            <app-health-indicators></app-health-indicators>
+          </ng-container>
+          <ng-container *ngSwitchDefault>
+            <app-user-health-conditions></app-user-health-conditions>
+          </ng-container>
+        </ng-container>
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+</div>

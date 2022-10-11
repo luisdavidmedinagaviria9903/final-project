@@ -1,0 +1,23 @@
+<div class="contenedor__todo">
+  <div class="caja__trasera">
+
+    <div class="caja__trasera-login">
+      <h3>¿YA TIENES UNA CUENTA?</h3>
+      <p>Inicia session para entrar en la aplicacion</p>
+      <button [routerLink]="'/login'">Iniciar Sesion</button>
+    </div>
+  </div>
+
+  <div class="contenedor__login-registar">
+    <form [formGroup]="form" class="formulario_register">
+      <h2>Registrarse</h2>
+      <input matInput type="text" formControlName="fullName" placeholder="Nombre Completo">
+      <input matInput type="email" formControlName="email"  placeholder="Correo Electronico">
+      <input matInput type="text" formControlName="userName" placeholder="Usuario">
+      <input matInput type="password" formControlName="password" placeholder="Contraseña">
+      <button *ngIf="this.form.valid" (click)="signUp()">Registrarse</button>
+    </form>
+
+  </div>
+
+</div>

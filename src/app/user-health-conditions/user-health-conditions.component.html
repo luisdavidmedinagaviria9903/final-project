@@ -1,0 +1,30 @@
+<div class="contenedor__login-registar1" id="contenedor1">
+  <form [formGroup]="form" class="formulario__login1">
+      <h1>INGRESA LAS CONDICIONES DE SALUD</h1>
+
+
+    <mat-label> estas condiciones son de algun familiar ?</mat-label><br>
+    <select class="form-select"
+            formControlName="user_id">
+
+      <ng-container>
+        <option *ngFor="let user of typeOfUser" [value]="user.id">{{user.name}}</option>
+      </ng-container>
+    </select><br><br>
+    <mat-label>Tipo de enfermedad</mat-label><br>
+    <select class="form-select"
+            formControlName="sickness_code">
+      <ng-container><br><br>
+        <option *ngFor="let sickness of typeOfSickness" [value]="sickness.id">{{sickness.description}}</option>
+      </ng-container>
+    </select><br><br>
+
+    <input *ngIf="form.get('sickness_code')?.value === '0'"
+           matInput type="text" placeholder="Enfermedad" formControlName="sickness_description" required><br><br>
+
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="submit()">Registrar</button>
+  </form>
+
+  <!--pre>{{form.value | json}}</pre-->
+
+</div>

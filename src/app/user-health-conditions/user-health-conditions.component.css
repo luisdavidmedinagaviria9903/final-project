@@ -1,0 +1,28 @@
+.contenedor__login-registar1
+{
+  max-width: 380px;
+  position: absolute;
+  top: 80px;
+  left: 300px;
+
+}
+
+.contenedor__login-registar1 form input
+{
+  width: 100%;
+  padding: 17px;
+  border: none;
+  background: rgba(223, 219, 219, 0.788);
+  outline: none;
+
+}
+.mat-form-field-infix{
+  padding: 0 !important;
+
+}
+.mat-form-field-appearance-fill{
+  padding: 0 !important;
+}
+.mat-form-field-wrapper {
+  padding-bottom:  0 !important;
+}

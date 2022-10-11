@@ -1,0 +1,12 @@
+<div class="contenedor__login-registar1" id="contenedor1">
+  <h3>INGRESA DATOS DEL FAMILIAR</h3>
+  <br/>
+  <form [formGroup]="form" class="formulario__login1">
+        <input  matInput type="text" placeholder="nombre" formControlName="familiarName" required><br><br>
+        <input  matInput type="email" placeholder="email" formControlName="familiarEmail" required><br><br>
+        <input  matInput type="number" placeholder="celular" formControlName="familiarPhone" required><br><br>
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="submit()">Registrar</button>
+  </form>
+  <!--pre>{{form.value | json}}</pre-->
+
+</div>
